@@ -1,4 +1,3 @@
-import React from 'react';
 import { useDispatch } from 'react-redux';
 import { changeFilter } from '../redux/filtersSlice';
 
@@ -10,10 +9,10 @@ const SearchBox = () => {
   };
 
   return (
-    <input 
-      type="text" 
-      placeholder="Search contacts" 
-      onChange={handleChange} 
+    <input
+      type="text"
+      placeholder="Search contacts"
+      onChange={handleChange}
     />
   );
 };

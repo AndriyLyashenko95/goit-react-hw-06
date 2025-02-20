@@ -5,20 +5,18 @@ import contactsReducer from './contactsSlice';
 import filtersReducer from './filtersSlice';
 
 const persistConfig = {
-  key: 'root',
+  key: 'contacts',
   storage,
-  whitelist: ['contacts'],
+  whitelist: ['items'],
 };
 
 const persistedContactsReducer = persistReducer(persistConfig, contactsReducer);
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
     contacts: persistedContactsReducer,
     filters: filtersReducer,
   },
 });
 
-const persistor = persistStore(store);
-
-export { store, persistor };
+export const persistor = persistStore(store);
