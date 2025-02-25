@@ -1,19 +1,26 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 import { changeFilter } from '../redux/filtersSlice';
 
 const SearchBox = () => {
+  const searchTerm = useSelector((state) => state.filters.filters.name);
+
   const dispatch = useDispatch();
 
-  const handleChange = (e) => {
-    dispatch(changeFilter(e.target.value));
+  const handleSearchChange = (evt) => {
+    dispatch(changeFilter(evt.target.value.trim() || ""));
   };
-
   return (
-    <input
-      type="text"
-      placeholder="Search contacts"
-      onChange={handleChange}
-    />
+    <div>
+      <div>
+        <input
+          onChange={handleSearchChange}
+          value={searchTerm}
+          placeholder="пошук"
+          type="text"
+          name="searchInput"
+        />
+      </div>
+    </div>
   );
 };
 

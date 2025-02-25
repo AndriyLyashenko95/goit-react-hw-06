@@ -2,17 +2,22 @@ import { useSelector } from 'react-redux';
 import Contact from '../Contact/Contact';
 
 const ContactList = () => {
-  const contacts = useSelector((state) => state.contacts.items);
-  const filter = useSelector((state) => state.filters.name);
+  const contactsList = useSelector((state) => state.contacts.contacts.items);
+  const filter = useSelector((state) => state.filters.filters.name) || ""; 
+  console.log(filter);
 
-  const filteredContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(filter.toLowerCase())
+  const contacts = contactsList.filter((contact) =>
+    contact.name.toLowerCase().includes(filter.toLowerCase().trim())
   );
 
+  if (contacts.length === 0) {
+    return <p>Список контактів порожній.</p>;
+  }
+
   return (
-    <div>
-      {filteredContacts.map(contact => (
-        <Contact key={contact.id} contact={contact} />
+    <div >
+      {contacts.map((contact) => (
+        <Contact key={contact.id} contactItem={contact} />
       ))}
     </div>
   );

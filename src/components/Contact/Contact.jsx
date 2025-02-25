@@ -1,17 +1,28 @@
 import { useDispatch } from 'react-redux';
+import { FaUser } from "react-icons/fa";
+import { BsFillTelephoneFill } from "react-icons/bs";
 import { deleteContact } from '../redux/contactsSlice';
 
-const Contact = ({ contact }) => {
+const Contact = ({ contactItem }) => {
   const dispatch = useDispatch();
-
-  const handleDelete = () => {
-    dispatch(deleteContact(contact.id));
-  };
+  const { name, phone } = contactItem;
 
   return (
     <div>
-      <p>{contact.name}: {contact.number}</p>
-      <button onClick={handleDelete}>Delete</button>
+      <ul>
+        <li>
+          <FaUser/> {name}
+        </li>
+        <li>
+          <BsFillTelephoneFill/> {phone}
+        </li>
+      </ul>
+      <button
+        type="button"
+        onClick={() => dispatch(deleteContact(contactItem.id))}
+      >
+        Усунути
+      </button>
     </div>
   );
 };
