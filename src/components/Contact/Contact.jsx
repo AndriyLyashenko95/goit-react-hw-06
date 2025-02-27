@@ -1,7 +1,8 @@
+import React from "react";
 import { useDispatch } from 'react-redux';
 import { FaUser } from "react-icons/fa";
 import { BsFillTelephoneFill } from "react-icons/bs";
-import { deleteContact } from '../redux/contactsSlice';
+import { deleteContact } from '../../redux/contactsSlice';
 
 const Contact = ({ contactItem }) => {
   const dispatch = useDispatch();

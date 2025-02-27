@@ -1,5 +1,6 @@
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleFormVisibility } from "./components/redux/visibleSlice";
+import { toggleFormVisibility } from "./redux/visibleSlice";
 import ContactsForm from './components/ContactsForm/ContactsForm';
 import ContactList from './components/ContactList/ContactList';
 import SearchBox from './components/SearchBox/SearchBox';
