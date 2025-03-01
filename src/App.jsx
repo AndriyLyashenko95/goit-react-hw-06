@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleFormVisibility } from "./redux/visibleSlice";
-import ContactsForm from './components/ContactsForm/ContactsForm';
+import ContactForm from './components/ContactForm/ContactForm';
 import ContactList from './components/ContactList/ContactList';
 import SearchBox from './components/SearchBox/SearchBox';
 
@@ -19,7 +19,7 @@ const App = () => {
       <h1>Телефонна книга</h1>
       {contactsList.length > 1 && <SearchBox />}
       {isFormVisible ? (
-        <ContactsForm closeForm={toggleForm} />
+        <ContactForm closeForm={toggleForm} />
       ) : (
         <button onClick={toggleForm}>
           Додати контакт

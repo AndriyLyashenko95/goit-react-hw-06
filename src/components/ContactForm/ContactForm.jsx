@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from '../../redux/contactsSlice';
 
-const ContactsForm = () => {
+const ContactForm = () => {
   const contacts = useSelector((state) => state.contacts.contacts.items);
   const dispatch = useDispatch();
   const initialValues = {
@@ -80,4 +80,4 @@ const ContactsForm = () => {
   );
 };
 
-export default ContactsForm;
+export default ContactForm;
